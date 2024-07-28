@@ -10,10 +10,10 @@
 </head>
 <body>
     <div class="wrapper">
-       <h1 id="Main_heading"> <b>High Voltages MQTT Dashboard</b></h1><br><br>
+       <h1 id="Main_heading"> <b>Carpenter's robot</b></h1><br><br>
        <form id="connection-information-form">
           <b>Hostname or IP Address and Port Number:</b> 
-          <input id="host" type="text" name="host" placeholder="broker address">
+          <input id="host" type="text" name="host" value="broker.hivemq.com">
           
           <input id="port" type="text" name="port" value="8080"><br>
           <b>Username and Password:</b>
@@ -21,7 +21,7 @@
          
           <input id="password" type="password" name="password" placeholder="password"><br>
           <b>Subscription topic:</b>
-          <input id="topic_s" type="text" name="topic_s" value="#"><br><br>
+          <input id="topic_s" type="text" name="topic_s" value="openmv/test"><br><br>
           <input type="button" onclick="startConnect()"  value="Connect">
           <input type="button"  onclick="startDisconnect()" value="Disconnect"> <br>
           <br><b>Publish Topic and Message:</b>
