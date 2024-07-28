@@ -68,11 +68,21 @@ document.getElementById("messages").innerHTML += "<span> Message to topic "+topi
 
 }
 
-var slider = document.getElementById("myRange");
-var output = document.getElementById("demo");
-output.innerHTML = slider.value; // Display the default slider value
 
-// Update the current slider value (each time you drag the slider handle)
-slider.oninput = function() {
-  output.innerHTML = this.value;
+function sliderValue(){
+    var slider = document.getElementById("myRange");
+    var output = document.getElementById("slider_value");
+    output.innerHTML = slider.value; // Display the default slider value
+    
+    // Update the current slider value (each time you drag the slider handle)
+    slider.oninput = function() {
+      output.innerHTML = this.value;
+      msg = this.value;
+      topic = "ur/robot/speed";
+      Message = new Paho.MQTT.Message(msg);
+      Message.destinationName = topic;
+      client.send(Message);
+      document.getElementById("messages").innerHTML += "<span> Message:"+msg+" to topic "+topic+" is sent </span><br>";
+    }
+
 }

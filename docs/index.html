@@ -8,7 +8,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.2/mqttws31.min.js" type="text/javascript"></script>
     <script src="script.js" type="text/javascript"></script>
 </head>
-<body>
+<body onload="sliderValue()">
     <div class="wrapper">
        <h1 id="Main_heading"> <b>Carpenter's robot</b></h1><br><br>
        <form id="connection-information-form">
@@ -28,9 +28,10 @@
        </form>
        <div id="messages"></div>
        <div class="slidecontainer">
-         <p>Custom range slider:</p>
+         <p>Robot speed:</p>
          <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
-         <h1>"the value for number is: " + output</h1>
+         <span>The value for number is:</span>
+         <span id="slider_value">+output</span>
        </div>
     </div>
  </body>
