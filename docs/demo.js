@@ -4,8 +4,8 @@ function startConnect(){
 
     host = document.getElementById("host").value;   
     port = document.getElementById("port").value;  
-    //userId  = document.getElementById("username").value;  
-    //passwordId = document.getElementById("password").value;  
+    userId  = document.getElementById("username").value;  
+    passwordId = document.getElementById("password").value;  
 
     document.getElementById("messages").innerHTML += "<span> Connecting to " + host + "on port " +port+"</span><br>";
     document.getElementById("messages").innerHTML += "<span> Using the client Id " + clientID +" </span><br>";
@@ -17,6 +17,8 @@ function startConnect(){
 
     client.connect({
         onSuccess: onConnect
+//        userName: userId,
+ //       passwordId: passwordId
     });
 
 
