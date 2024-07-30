@@ -78,7 +78,7 @@ function sliderValue(){
     slider.oninput = function() {
       output.innerHTML = this.value;
       msg = this.value;
-      topic = "ur/robot/speed";
+      topic = "carpenters_robot/speed";
       Message = new Paho.MQTT.Message(msg);
       Message.destinationName = topic;
       client.send(Message);
