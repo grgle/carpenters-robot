@@ -47,12 +47,16 @@ topic = document.getElementById("topic_p").value;
 Message = new Paho.MQTT.Message(msg);
 Message.destinationName = topic;
 client.send(Message);
-document.getElementById("messages").innerHTML += "<span> Message to topic "+topic+" is sent </span><br>";
+document.getElementById("messages").innerHTML += "<span id='scrollit'> Message to topic "+topic+" is sent </span><br>";
 }
 
 
+//keep with end of scroling
+document.getElementById('scrollit').scrollTop = 9999999;
+
+
 function sliderValue(){
-    var slider = document.getElementById("myRange");
+    var slider = document.getElementById("slider");
     var output = document.getElementById("slider_value");
     output.innerHTML = slider.value; // Display the default slider value
     

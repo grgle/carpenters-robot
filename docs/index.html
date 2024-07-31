@@ -9,32 +9,35 @@
     <script src="script.js" type="text/javascript"></script>
 </head>
 <body onload="sliderValue()">
-    <div class="wrapper">
-       <h1 id="Main_heading"> <b>Carpenter's robot</b></h1><br><br>
-       <form id="connection-information-form">
-          <b>Hostname or IP Address and Port Number:</b> <br>
-          <input id="host" type="text" name="host" value="test.mosquitto.org">
-          
-          <input id="port" type="text" name="port" value="8081"><br>
-          
-          <b>Subscription topic:</b>
-          <input id="topic_s" type="text" name="topic_s" value="carpenters_robot/confirm"><br><br>
-          <input type="button" onclick="startConnect()"  value="Connect">
-          <input type="button"  onclick="startDisconnect()" value="Disconnect"> <br>
-          <br><b>Publish Topic and Message:</b>
-          <input id="topic_p" type="text" name="topic_p" value="carpenters_robot/speed">
-          <input id="Message" type="text" name="message" placehilder="Message">
-          <input type="button" onclick="publishMessage()" value="Publish">
-       </form>
-       <div id="messages"></div>
+   <div id="mainslide">
+      <div class="wrapper">
+         <h1 id="Main_heading"><b>Carpenter's robot</b></h1><br>
+         <form id="connection-information-form" align="center">
+            <b>Hostname or IP Address and Port Number:</b> <br>
+            <input id="host" type="text" name="host" value="test.mosquitto.org">
+            <input id="port" type="text" name="port" value="8081"><br>
+            <b>Subscription topic:</b>
+            <input id="topic_s" type="text" name="topic_s" value="carpenters_robot/confirm"><br><br>
+            <input type="button" onclick="startConnect()"  value="Connect">
+            <input type="button"  onclick="startDisconnect()" value="Disconnect"> <br>
+            <br><b>Publish Topic and Message:</b>
+            <input id="topic_p" type="text" name="topic_p" value="carpenters_robot/speed">
+            <input id="Message" type="text" name="message" placehilder="Message">
+            <input type="button" onclick="publishMessage()" value="Publish">
+            <div id="messages" align="center">
+               <div id="messages_content"></div>
+            </div>
+         </form>
+         
       </div>
-   <div class="slidecontainer">
-      <div id="bottomblock">
-         <p>Robot speed:</p>
-         <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
-         <span>Actual speed:</span>
-         <span id="slider_value"></span>
-      </div>      
+      <div class="slidecontainer" align="center">
+         <div id="bottomblock">
+            <p>Robot speed:
+               <span id="slider_value"></span>
+            </p>
+            <input type="range" min="1" max="100" value="50" id="slider">
+         </div>      
+      </div>
    </div>
  </body>
 </html>

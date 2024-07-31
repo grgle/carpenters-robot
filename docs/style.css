@@ -1,22 +1,21 @@
 body {
     font-family: "Courier",  monospace;
 }
+
+
+
 .wrapper {
-    position:absolute;
+    position:relative;
     margin-left: auto;
     margin-right: auto;
-    right:0;
-    left:0;
-    width: 100%;
+    width: 95%;
     height: 90%;
-    padding-right: 10px;
-    padding-left: 10px;
-    
-}
+    padding-right:0%;
+    padding-left: 0%;
+}   
+
 
 input {
-    
-    margin: 0;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -61,40 +60,30 @@ input[type=button]:hover {
     width:78%;
     display: inline-block;
     border:1px solid black;
-    max-height: 40%;
-    min-height: 40%;
+    max-height: 200px;
+    min-height: 200px;
     overflow: scroll;
     scroll-snap-type: y mandatory;
-   
-
 }
 
-#messages:last-child {
-    margin-bottom: 32px;
-}
-
-#messages span {
-    overflow-y: scroll;
-    overflow: clip;
+#messages_content {
+  display: table-cell;
+  vertical-align: bottom;
 }
 
 .slidecontainer {
-    width: 80%; /* Width of the outside container */
-    margin-left: auto;
+    width: 78%; /* Width of the outside container */
+    position: fixed;
+    bottom: 5%;
+    margin-left: 11%;
     margin-right: auto;
-    padding: 10px;
-    padding: 10px;
+    
   }
+ 
 
-  #bottomblock{
-    position:absolute;
-    bottom:5%;
-  }
-
-
-  }
+  
   /* The slider itself */
-  .slider {
+  #slider {
     -webkit-appearance: none;  /* Override default CSS styles */
     appearance: none;
     width: 100%; /* Full-width */
@@ -104,32 +93,29 @@ input[type=button]:hover {
     opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
     -webkit-transition: .2s; /* 0.2 seconds transition on hover */
     transition: opacity .2s;
+  }
+
     
   
   /* Mouse-over effects */
-  .slider:hover {
+  #slider:hover {
     opacity: 1; /* Fully shown on mouse-over */
   }
   
   /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
-  .slider::-webkit-slider-thumb {
+  #slider::-webkit-slider-thumb {
     -webkit-appearance: none; /* Override default look */
-    appearance: none;
+    appearance: textfield;
     width: 25px; /* Set a specific slider handle width */
     height: 25px; /* Slider handle height */
     background: #04AA6D; /* Green background */
-    cursor: pointer; /* Cursor on hover */
+    cursor: context-menu; /* Cursor on hover */
   }
   
-  .slider::-moz-range-thumb {
+  #slider::-moz-range-thumb {
     width: 25px; /* Set a specific slider handle width */
     height: 25px; /* Slider handle height */
     background: #04AA6D; /* Green background */
-    cursor: pointer; /* Cursor on hover */
+    cursor: text; /* Cursor on hover */
   }
-
-
-
-
-/* #############################################URDF############################################### */
-
+}
