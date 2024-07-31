@@ -1,7 +1,5 @@
 function startConnect(){
-
     clientID = "clientID - "+parseInt(Math.random() * 100);
-
     host = document.getElementById("host").value;   
     port = document.getElementById("port").value;  
     //userId  = document.getElementById("username").value;  
@@ -11,28 +9,19 @@ function startConnect(){
     document.getElementById("messages").innerHTML += "<span> Using the client Id " + clientID +" </span><br>";
 
     client = new Paho.MQTT.Client(host,Number(port),clientID);
-
     client.onConnectionLost = onConnectionLost;
     client.onMessageArrived = onMessageArrived;
-
     client.connect({
         'useSSL': true,
         'onSuccess': onConnect
     });
-
-
 }
-
 
 function onConnect(){
     topic =  document.getElementById("topic_s").value;
-
     document.getElementById("messages").innerHTML += "<span> Subscribing to topic "+topic + "</span><br>";
-
     client.subscribe(topic);
 }
-
-
 
 function onConnectionLost(responseObject){
     document.getElementById("messages").innerHTML += "<span> ERROR: Connection is lost.</span><br>";
@@ -49,10 +38,6 @@ function onMessageArrived(message){
 function startDisconnect(){
     client.disconnect();
     document.getElementById("messages").innerHTML += "<span> Disconnected. </span><br>";
-
-
-
-
 }
 
 function publishMessage(){
@@ -61,11 +46,8 @@ topic = document.getElementById("topic_p").value;
 
 Message = new Paho.MQTT.Message(msg);
 Message.destinationName = topic;
-
 client.send(Message);
 document.getElementById("messages").innerHTML += "<span> Message to topic "+topic+" is sent </span><br>";
-
-
 }
 
 
@@ -75,7 +57,7 @@ function sliderValue(){
     output.innerHTML = slider.value; // Display the default slider value
     
     // Update the current slider value (each time you drag the slider handle)
-    slider.oninput = function() {
+    slider.onchange = function() {
       output.innerHTML = this.value;
       msg = this.value;
       topic = "carpenters_robot/speed";

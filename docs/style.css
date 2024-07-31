@@ -1,16 +1,21 @@
 body {
-    font-family: "Open Sans", sans-serif;
+    font-family: "Courier",  monospace;
 }
 .wrapper {
+    position:absolute;
     margin-left: auto;
     margin-right: auto;
-    width: 60%;
+    right:0;
+    left:0;
+    width: 100%;
+    height: 90%;
     padding-right: 10px;
     padding-left: 10px;
+    
 }
 
 input {
-    width : 150px;
+    
     margin: 0;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -18,19 +23,16 @@ input {
 }
 input[type=text] {
   width:40%;
-    padding: 12px 12px;
+  margin-left: auto;
+  margin-right: auto;
+    padding: 1%;
         height: 10px;
 
-    margin: 8px 0;
+    margin: 1% 0;
 }
-input[type=password] {
-  width:100%;
-    padding: 12px 12px;
-        height: 10px;
 
-    margin: 4px 2px;
-}
 input[type=button] {
+  width:40%;
     background-color: gray;
     border: none;
     color: black;
@@ -38,8 +40,7 @@ input[type=button] {
     text-decoration: none;
     font-weight: bold;
         height: 20px;
-
-    margin: 4px 2px;
+    margin: 1% 0;
     cursor: pointer;
 }
 input[type=text]:focus {
@@ -57,11 +58,11 @@ input[type=button]:hover {
     margin-top: 12px;
     margin-bottom: 12px;
     padding: 12px;
-    width:100%;
+    width:78%;
     display: inline-block;
     border:1px solid black;
-    max-height: 200px;
-    min-height: 200px;
+    max-height: 40%;
+    min-height: 40%;
     overflow: scroll;
     scroll-snap-type: y mandatory;
    
@@ -74,13 +75,24 @@ input[type=button]:hover {
 
 #messages span {
     overflow-y: scroll;
-    overflow: scroll;
+    overflow: clip;
 }
 
 .slidecontainer {
-    width: 100%; /* Width of the outside container */
+    width: 80%; /* Width of the outside container */
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    padding: 10px;
   }
-  
+
+  #bottomblock{
+    position:absolute;
+    bottom:5%;
+  }
+
+
+  }
   /* The slider itself */
   .slider {
     -webkit-appearance: none;  /* Override default CSS styles */
@@ -92,7 +104,7 @@ input[type=button]:hover {
     opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
     -webkit-transition: .2s; /* 0.2 seconds transition on hover */
     transition: opacity .2s;
-  }
+    
   
   /* Mouse-over effects */
   .slider:hover {
