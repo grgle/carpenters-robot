@@ -47,7 +47,7 @@ topic = document.getElementById("topic_p").value;
 Message = new Paho.MQTT.Message(msg);
 Message.destinationName = topic;
 client.send(Message);
-document.getElementById("messages").innerHTML += "<span id='scrollit'> Message to topic "+topic+" is sent </span><br>";
+document.getElementById("messages").innerHTML += "Message to topic "+topic+" is sent";
 }
 
 
