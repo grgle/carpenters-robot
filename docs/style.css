@@ -30,6 +30,12 @@ input[type=text] {
     margin: 1% 0;
 }
 
+input[type=submit]{
+  width:30%;
+  height: 40px;
+  border-radius: 8px;
+}
+
 input[type=button] {
   width:40%;
     background-color: gray;
@@ -74,7 +80,7 @@ input[type=button]:hover {
 .switch {
   position: relative;
   display: inline-block;
-  width: 60px;
+  width: 20%;
   height: 34px;
 }
 
@@ -92,11 +98,12 @@ input[type=button]:hover {
   transition: .4s;
 }
 
+
 .slider:before {
   position: absolute;
   content: "";
   height: 26px;
-  width: 26px;
+  width: 18%;
   left: 4px;
   bottom: 4px;
   background-color: white;
@@ -113,9 +120,34 @@ input:focus + .slider {
 }
 
 input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
+  -webkit-transform: translateX(18%);
+  -ms-transform: translateX(18%);
+  transform: translateX(18%);
+}
+
+.robot_button {
+  width:90%;
+
+    border: none;
+    color: black;
+    display: inline-block;
+    text-decoration: none;
+    font-weight: bold;
+        height: 20px;
+    margin: 1% 0;
+    cursor: pointer;
+}
+.robot_button:focus {
+  width:30%;
+    background-color: gray;
+    border: none;
+    color: black;
+    
+    text-decoration: none;
+    font-weight: bold;
+        height: 20px;
+    margin: 1% 0;
+    cursor: pointer;
 }
 
 .slidecontainer {

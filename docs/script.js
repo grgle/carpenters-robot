@@ -1,12 +1,11 @@
+commands = "carpenters_robot/commands"
+
 function startConnect(){
     clientID = "clientID - "+parseInt(Math.random() * 100);
-    host = document.getElementById("host").value;   
-    port = document.getElementById("port").value;  
+    host = "test.mosquitto.org";   
+    port = "8081";  
     //userId  = document.getElementById("username").value;  
     //passwordId = document.getElementById("password").value;  
-
-    document.getElementById("messages").innerHTML += "<span> Connecting to " + host + "on port " +port+"</span><br>";
-    document.getElementById("messages").innerHTML += "<span> Using the client Id " + clientID +" </span><br>";
 
     client = new Paho.MQTT.Client(host,Number(port),clientID);
     client.onConnectionLost = onConnectionLost;
@@ -32,7 +31,7 @@ function onConnectionLost(responseObject){
 
 function onMessageArrived(message){
     console.log("OnMessageArrived: "+message.payloadString);
-    document.getElementById("messages").innerHTML += "<span> Topic:"+message.destinationName+"| Message : "+message.payloadString + "</span><br>";
+    document.getElementById("messages").innerHTML += "Topic:"+message.destinationName+"| Message : "+message.payloadString + "<br>";
 }
 
 function startDisconnect(){
@@ -49,6 +48,16 @@ Message.destinationName = topic;
 client.send(Message);
 document.getElementById("messages").innerHTML += "Message to topic "+topic+" is sent";
 }
+
+//robot buttons
+function play(){
+  msg = 'PLAY';
+  topic = commands;
+  Message = new Paho.MQTT.Message(msg);
+  Message.destinationName = topic;
+  client.send(Message);
+  document.getElementById("messages").innerHTML += "Playing...";
+  }
 
 //toggle switch
 document.addEventListener('DOMContentLoaded', function () {

@@ -13,9 +13,7 @@
       <div class="wrapper">
          <h1 id="Main_heading"><b>Carpenter's robot</b></h1><br>
          <form id="connection-information-form" align="center">
-            <b>Hostname or IP Address and Port Number:</b> <br>
-            <input id="host" type="text" name="host" value="test.mosquitto.org">
-            <input id="port" type="text" name="port" value="8081"><br>
+            
             <b>Subscription topic:</b>
             <input id="topic_s" type="text" name="topic_s" value="carpenters_robot/mode"><br><br>
             <input type="button" onclick="startConnect()"  value="Connect">
@@ -24,10 +22,6 @@
             <input id="topic_p" type="text" name="topic_p" value="carpenters_robot/speed">
             <input id="Message" type="text" name="message" placehilder="Message">
             <input type="button" onclick="publishMessage()" value="Publish">
-            <label class="switch">
-               <input type="checkbox">
-               <div class="slider"></div>
-             </label>
             <div id="messages" align="center">
                <div id="messages_content"></div>
             </div>
@@ -35,6 +29,17 @@
          
       </div>
       <div class="slidecontainer" align="center">
+         <div>
+            <label class="switch">
+               <input type="checkbox" >
+               <div class="slider" value="mode"></div><br>
+             </label>
+         </div>
+         <div class="robot_button"> 
+               <input type="submit" onclick="play()" value="Play">
+               <input type="submit" onclick="pause()" value="Pause">
+               <input type="submit" onclick="stop()" value="Stop"><br>
+         </div>
          <div id="bottomblock">
             <p>Robot speed:
                <span id="slider_value"></span>
