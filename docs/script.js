@@ -111,7 +111,9 @@ function sliderValue(){
     var slider = document.getElementById("slider");
     var output = document.getElementById("slider_value");
     output.innerHTML = slider.value; // Display the default slider value
-    output.innerHTML = this.value;
+    slider.oninput = function() {
+      output.innerHTML = this.value;
+    }
     // Update the current slider value (each time you drag the slider handle)
     slider.onchange = function() {
       msg_raw = this.value;
