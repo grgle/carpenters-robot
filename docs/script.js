@@ -51,12 +51,6 @@ function onMessageArrived(message){
       console.log("onMessageArrived:"+number);
       
       
-      
-      
-      
-      
-      
-      
       // Convert the message (byte array) to a Blob
       const blob = new Blob([message.payloadString], { type: 'image/jpeg' });
       // Create a URL for the Blob
@@ -117,10 +111,9 @@ function sliderValue(){
     var slider = document.getElementById("slider");
     var output = document.getElementById("slider_value");
     output.innerHTML = slider.value; // Display the default slider value
-    
+    output.innerHTML = this.value;
     // Update the current slider value (each time you drag the slider handle)
     slider.onchange = function() {
-      output.innerHTML = this.value;
       msg_raw = this.value;
       msg =   document.getElementById("topic_secret").value + msg_raw
       topic = "carpenters_robot/speed";
