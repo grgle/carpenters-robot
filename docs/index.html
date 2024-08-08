@@ -15,17 +15,21 @@
          <form id="connection-information-form" align="center">
             
             <b>Subscription topic:</b>
-            <input id="topic_s" type="text" name="topic_s" value="carpenters_robot/mode"><br><br>
+            <input id="topic_s" type="text" name="topic_s" value="mode">
+            <input id="topic_secret" type="text" name="topic_secret" value="tellme">
+            <br><br>
             <input type="button" onclick="startConnect()"  value="Connect">
             <input type="button"  onclick="startDisconnect()" value="Disconnect"> <br>
             <br><b>Publish Topic and Message:</b>
-            <input id="topic_p" type="text" name="topic_p" value="carpenters_robot/speed">
+            <input id="topic_p" type="text" name="topic_p" value="commands">
             <input id="Message" type="text" name="message" placehilder="Message">
             <input type="button" onclick="publishMessage()" value="Publish">
             <div id="messages" align="center">
                <div id="messages_content"></div>
             </div>
          </form>
+
+         <img id="image" alt="Image will be displayed here" />
          
       </div>
       <div class="slidecontainer" align="center">

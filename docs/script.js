@@ -17,7 +17,7 @@ function startConnect(){
 }
 
 function onConnect(){
-    topic =  document.getElementById("topic_s").value;
+    topic =  "carpenters_robot/"+ document.getElementById("topic_s").value;
     document.getElementById("messages").innerHTML += "<span> Subscribing to topic "+topic + "</span><br>";
     client.subscribe(topic);
 }
@@ -30,8 +30,41 @@ function onConnectionLost(responseObject){
 }
 
 function onMessageArrived(message){
-    console.log("OnMessageArrived: "+message.payloadString);
-    document.getElementById("messages").innerHTML += "Topic:"+message.destinationName+"| Message : "+message.payloadString + "<br>";
+    //console.log("OnMessageArrived: "+message.payloadString);
+    if(message.destinationName != "carpenters_robot/img"){
+      console.log(`Message received: ${message.payloadString}`);
+      document.getElementById("messages").innerHTML += "Topic:"+message.destinationName+"| Message : "+message.payloadString + "<br>";
+    }
+    else if (message.destinationName == "carpenters_robot/img"){
+      document.getElementById("messages").innerHTML += "Topic:"+message.destinationName+"| Message : hey<br>";
+      console.log(`Hey`);
+      
+      var payload = message.payloadBytes
+      var length = payload.length;
+      var buffer = new ArrayBuffer(length);
+      uint = new Uint8Array(buffer);
+      for (var i=0; i<length; i++) {
+        uint[(length-1)-i] = payload[i];
+      }
+      var doubleView = new Float64Array(uint.buffer);
+      var number = doubleView[0];
+      console.log("onMessageArrived:"+number);
+      
+      
+      
+      
+      
+      
+      
+      
+      // Convert the message (byte array) to a Blob
+      const blob = new Blob([message.payloadString], { type: 'image/jpeg' });
+      // Create a URL for the Blob
+      const url = URL.createObjectURL(blob);
+      // Set the src of the image element
+      document.getElementById('image').src = url;
+
+    }
 }
 
 function startDisconnect(){
@@ -40,13 +73,14 @@ function startDisconnect(){
 }
 
 function publishMessage(){
-msg = document.getElementById("Message").value;
-topic = document.getElementById("topic_p").value;
+msg_raw = document.getElementById("Message").value
+msg =   document.getElementById("topic_secret").value + msg_raw
+topic = "carpenters_robot/"+ document.getElementById("topic_p").value;
 
 Message = new Paho.MQTT.Message(msg);
 Message.destinationName = topic;
 client.send(Message);
-document.getElementById("messages").innerHTML += "Message to topic "+topic+" is sent";
+document.getElementById("messages").innerHTML += "Message: "+msg_raw+" to topic "+topic+" is sent<br>";
 }
 
 //robot buttons
@@ -87,12 +121,13 @@ function sliderValue(){
     // Update the current slider value (each time you drag the slider handle)
     slider.onchange = function() {
       output.innerHTML = this.value;
-      msg = this.value;
+      msg_raw = this.value;
+      msg =   document.getElementById("topic_secret").value + msg_raw
       topic = "carpenters_robot/speed";
       Message = new Paho.MQTT.Message(msg);
       Message.destinationName = topic;
       client.send(Message);
-      document.getElementById("messages").innerHTML += "<span> Message:"+msg+" to topic "+topic+" is sent </span><br>";
+      document.getElementById("messages").innerHTML += "Message:"+msg_raw+" to topic "+topic+" is sent<br>";
     }
 
 }
