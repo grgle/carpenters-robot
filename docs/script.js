@@ -124,7 +124,7 @@ function sliderValue(){
       msg_raw = this.value;
       msg =   document.getElementById("topic_secret").value + msg_raw
       topic = "carpenters_robot/speed";
-      Message = new Paho.MQTT.Message(raw_msg);
+      Message = new Paho.MQTT.Message(msg_raw);
       Message.destinationName = topic;
       client.send(Message);
       document.getElementById("messages").innerHTML += "Message:"+msg_raw+" to topic "+topic+" is sent<br>";
